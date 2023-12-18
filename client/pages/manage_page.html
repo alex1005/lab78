@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Products | Manage</title>
+        <script src="../js/global.js"></script>
+        <script src="../js/api.js"></script>
+        <link rel="stylesheet" type="text/css" href="../styles.css"/>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+        <style>
+            li {
+                counter-increment: item;
+                margin-bottom: 5px;
+                font-size: 20pt;
+            }
+            .name {
+                font-size: 20pt;
+                font-weight: bold;
+            }
+            .description {
+                font-size: 16pt;
+                font-style: italic;
+            }
+            .price {
+                font-size: 16pt;
+            }
+            .list_item {
+                display:flex;
+                justify-content: start;
+                padding: 3px;
+            }
+            .list_item > div {
+                margin: 10px;
+            }
+            .list_item_info {
+                word-break: break-all;
+                width: 500px;
+            }
+            button.controls {
+                width: 100%;
+            }
+            .list_item_controls {
+                width: 100px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="topmenu">
+            <a href="../index.html">Home</a>
+            <a href="javascript:void(0);" class="menuicon" onclick="toggleMenu()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+        <div id="content_regular">
+            <div>
+                <div>
+                    <h1>Create New Product</h1>
+                    <form onsubmit="createProduct(event)">
+                        <table>
+                            <tr>
+                                <td><label for="newProductName">Name:</label></td>
+                                <td><input type="text" id="newProductName" required></td>
+                            </tr>
+                            <tr>
+                                <td><label for="newProductDescription">Description:</label></td>
+                                <td><input type="text" id="newProductDescription"></td>
+                            </tr>
+                            <tr>
+                                <td><label for="newProductPrice">Price ($):</label></td>
+                                <td><input type="number" id="newProductPrice" step="0.01" required></td>
+                            </tr>
+                        </table>
+                        <button type="submit"><i class="fa fa-edit"> Create</i></button>
+                    </form>
+                </div>
+                <div id="updateForm"></div>
+            </div>
+            <div id="product_list" style="margin-left: 50px;"></div>
+        </div>
+        <footer id="footer">
+            <p>&copy; 2023 Products Store</p>
+        </footer>
+
+        <script>
+            getProducts();
+        </script>
+    </body>
+</html>
